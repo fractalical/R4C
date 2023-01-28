@@ -20,7 +20,7 @@ class GetRobotsCountView(APIView):
     def get(self, request):
         models = Robot.objects.values_list('model', flat=True).distinct()
         book = xlwt.Workbook(encoding='utf-8')
-        date = datetime.datetime.today() - datetime.timedelta(weeks=2)
+        date = datetime.datetime.today() - datetime.timedelta(weeks=1)
 
         for model in models:
             if Robot.objects.filter(model=model, created__gt=date).count() > 0:
