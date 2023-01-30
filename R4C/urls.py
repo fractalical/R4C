@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from robots.views import index_view, GetRobotsCountView
+from robots.views import index_view, GetRobotsCountView, PostRobotsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('', index_view, name='index'),
     path('api/get_robots_count/', GetRobotsCountView.as_view(), name='path'),
+    path('api/create_robots/', PostRobotsView.as_view(), name='create_robot'),
 ]
