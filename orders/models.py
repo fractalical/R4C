@@ -20,6 +20,6 @@ class Order(models.Model):
         send_mail(
             subject=subject,
             message=message,
-            from_email=settings.EMAIL_HOST_USER,
+            from_email='example@mail.com',
             recipient_list=[self.customer.email],
         )
